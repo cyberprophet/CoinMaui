@@ -4,17 +4,20 @@
              x:Class="ShareInvest.Pages.CoinCap"
              Title="CoinCap"
              BackgroundColor="#FFF">
-    <CollectionView x:Name="CoinView">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="1" />
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Padding="0">
-                    <Label FontSize="Medium" TextColor="DarkViolet" Text="{Binding Name}" />
-                    <Label FontSize="Medium" TextColor="LightCoral" Text="{Binding Symbol}" />
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <Grid RowDefinitions="Auto, Auto">
+        <Label Grid.Row="0" Text="가상화폐" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" />
+        <CollectionView x:Name="CoinView" Grid.Row="1" SelectionMode="Single" SelectionChanged="OnChangedCoinView" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="1" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="0">
+                        <Label FontSize="Medium" TextColor="DarkViolet" Text="{Binding Name}" />
+                        <Label FontSize="Medium" TextColor="LightCoral" Text="{Binding Symbol}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
